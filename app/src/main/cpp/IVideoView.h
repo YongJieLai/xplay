@@ -1,13 +1,20 @@
 //
 // Created by 赖勇杰 on 2025/10/2.
+// 10/3
 //
-
 #ifndef XPLAY_IVIDEOVIEW_H
 #define XPLAY_IVIDEOVIEW_H
 
 
-class IVideoView {
+#include "XData.h"
+#include "IObserver.h"
 
+class IVideoView:public IObserver
+{
+public:
+    virtual void SetRender(void *win) = 0;
+    virtual void Render(XData data) = 0;
+    virtual void Update(XData data);
 };
 
 

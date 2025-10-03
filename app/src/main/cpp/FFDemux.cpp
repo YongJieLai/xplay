@@ -107,8 +107,6 @@ XData FFDemux::Read()
     return d;
 }
 
-
-
 FFDemux::FFDemux()
 {
     static bool isFirst = true;
