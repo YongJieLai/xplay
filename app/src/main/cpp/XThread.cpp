@@ -1,7 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/2.
-//
-
 #include "XThread.h"
 #include "XLog.h"
 
@@ -12,12 +8,29 @@ void XSleep(int mis)
     chrono::milliseconds du(mis);
     this_thread::sleep_for(du);
 }
+
+void XThread::SetPause(bool isP)
+{
+    isPause = isP;
+    //等待100毫秒
+    for(int i = 0; i < 10; i++)
+    {
+        if(isPausing == isP)
+        {
+            break;
+        }
+        XSleep(10);
+    }
+
+}
 //启动线程
-void XThread::Start()
+bool XThread::Start()
 {
     isExit = false;
+    isPause = false;
     thread th(&XThread::ThreadMain,this);
     th.detach();
+    return true;
 }
 void XThread::ThreadMain()
 {
@@ -38,6 +51,7 @@ void XThread::Stop()
         if(!isRuning)
         {
             XLOGI("Stop 停止线程成功!");
+
             return;
         }
         XSleep(1);

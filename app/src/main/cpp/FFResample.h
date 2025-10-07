@@ -1,6 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/4.
-//
 #ifndef XPLAY_FFRESAMPLE_H
 #define XPLAY_FFRESAMPLE_H
 

@@ -1,6 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/2.
-//
 #ifndef XPLAY_IDECODE_H
 #define XPLAY_IDECODE_H
 
@@ -12,8 +9,9 @@ class IDecode:public IObserver
 {
 public:
     //打开解码器
-    virtual bool Open(XParameter para) = 0;
-
+    virtual bool Open(XParameter para,bool isHard=false) = 0;
+    virtual void Close() = 0;
+    virtual void Clear();
     //future模型 发送数据到线程解码
     virtual bool SendPacket(XData pkt) = 0;
 
@@ -28,6 +26,9 @@ public:
     //最大的队列缓冲
     int maxList = 100;
 
+    //同步时间，再次打开文件要清理
+    int synPts = 0;
+    int pts = 0;
 
 protected:
     virtual void Main();
@@ -41,4 +42,3 @@ protected:
 
 
 #endif //XPLAY_IDECODE_H
-

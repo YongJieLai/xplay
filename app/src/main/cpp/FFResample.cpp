@@ -1,6 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/4.
-//
 #include "FFResample.h"  // 包含头文件
 #include "XLog.h"        // 日志模块
 #include <libavcodec/avcodec.h>  // FFmpeg编解码库

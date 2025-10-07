@@ -1,7 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/3.
-//
-
 #ifndef XPLAY_IAUDIOPLAY_H
 #define XPLAY_IAUDIOPLAY_H
 
@@ -20,8 +16,11 @@ public:
     virtual XData GetData();
 
     virtual bool StartPlay(XParameter out) = 0;
+    virtual void Close() = 0;
+    virtual void Clear();
     //最大缓冲
     int maxFrame = 100;
+    int pts = 0;
 protected:
     std::list <XData> frames;
     std::mutex framesMutex;

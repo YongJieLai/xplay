@@ -1,6 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/4.
-//
 #ifndef XPLAY_FFPLAYERBUILDER_H
 #define XPLAY_FFPLAYERBUILDER_H
 

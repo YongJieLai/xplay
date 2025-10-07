@@ -1,13 +1,21 @@
-//
-// Created by 赖勇杰 on 2025/10/2.
-// 10/3
-//
+
 #include "GLVideoView.h"
 #include "XTexture.h"
 #include "XLog.h"
 void GLVideoView::SetRender(void *win)
 {
     view = win;
+}
+void GLVideoView::Close()
+{
+    mux.lock();
+    if(txt)
+    {
+        txt->Drop();
+        txt = 0;
+    }
+
+    mux.unlock();
 }
 void GLVideoView::Render(XData data)
 {

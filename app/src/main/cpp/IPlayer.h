@@ -1,6 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/4.
-//
 #ifndef XPLAY_IPLAYER_H  // 防止头文件重复包含
 #define XPLAY_IPLAYER_H
 

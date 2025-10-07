@@ -1,8 +1,3 @@
-//
-// Created by 赖勇杰 on 2025/10/2.
-//
-
-
 #ifndef XPLAY_FFDECODE_H
 #define XPLAY_FFDECODE_H
 
@@ -15,8 +10,11 @@ struct AVFrame;
 class FFDecode:public IDecode
 {
 public:
+    static void InitHard(void *vm);
 
-    virtual bool Open(XParameter para);
+    virtual bool Open(XParameter para,bool isHard=false);
+    virtual void Close();
+    virtual void Clear();
     //future模型 发送数据到线程解码
     virtual bool SendPacket(XData pkt);
 
@@ -26,6 +24,7 @@ public:
 protected:
     AVCodecContext *codec = 0;
     AVFrame *frame = 0;
+    std::mutex mux;
 };
 
 
